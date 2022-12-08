@@ -44,10 +44,6 @@
   
   <node pkg="tf" type="static_transform_publisher" name="base_to_lidar" args="-0.12 0 0 0 0 0 1 base_frame laser 100" />
 
-  <!-- hector_mapping/mapping_default.launch -->
-  <!-- <node pkg="tf" type="static_transform_publisher" name="base_to_laser_broadcaster" args="-0.12 0 0 0 0 0 base_link laser 100"/> -->
-
-
   <!-- Move base -->
   <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
     <rosparam file="$(find robot_nav)/config/costmap_common_params.yaml" command="load" ns="global_costmap" />
@@ -56,10 +52,6 @@
     <rosparam file="$(find robot_nav)/config/global_costmap_params.yaml" command="load" />
     <rosparam file="$(find robot_nav)/config/dwa_local_planner_params.yaml" command="load" />
     <rosparam file="$(find robot_nav)/config/move_base_params.yaml" command="load" />
-    <!-- customize -->
-    <!-- <param name="recovery_behavior_enabled" value="true"/> 
-    <param name="clearing_rotation_allowed" value="true"/> -->
-    <!-- end customize -->
 
     <param name="controller_frequency" value="10"/>
     
@@ -69,12 +61,7 @@
     
     <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS"/>
 
-    <!-- customize -->
-    <!-- <param name="move_base/DWAPlannerROS/yaw_goal_tolerance" value="3.1"/>
-    <param name="move_base/DWAPlannerROS/xy_goal_tolerance" value="0.2"/> -->
-    <!-- customize -->
   </node>
-
 
   <!-- <include file="$(find vel_to_odom)/launch/vel2odom.launch"/> -->
 
